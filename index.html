@@ -1,3 +1,5 @@
+
+
 <!doctype html>
 <html class="no-js" lang="zxx">
     <head>
@@ -13,179 +15,312 @@
         <title>BronchAI - Tumor Segmentation</title>
 		
 		<!-- Favicon -->
-        <link rel="icon" href="img/icon.png">
+        <link rel="icon" href="https://res.cloudinary.com/dkyur0ade/image/upload/v1714709343/icon_lcn0qz.png">
 		
 		<!-- Google Fonts -->
 		<link href="https://fonts.googleapis.com/css?family=Poppins:200i,300,300i,400,400i,500,500i,600,600i,700,700i,800,800i,900,900i&display=swap" rel="stylesheet">
 
 		<!-- Bootstrap CSS -->
-		<link rel="stylesheet" href="css/bootstrap.min.css">
+		<link rel="stylesheet" href="{{ url_for('static', filename='bootstrap.min.css') }}">
 		<!-- Nice Select CSS -->
-		<link rel="stylesheet" href="css/nice-select.css">
+		<link rel="stylesheet" href="{{ url_for('static', filename='nice-select.css') }}">
 		<!-- Font Awesome CSS -->
-        <link rel="stylesheet" href="css/font-awesome.min.css">
+		<link rel="stylesheet" href="{{ url_for('static', filename='font-awesome.min.css') }}">
 		<!-- icofont CSS -->
-        <link rel="stylesheet" href="css/icofont.css">
+		<link rel="stylesheet" href="{{ url_for('static', filename='icofont.css') }}">
 		<!-- Slicknav -->
-		<link rel="stylesheet" href="css/slicknav.min.css">
+		<link rel="stylesheet" href="{{ url_for('static', filename='slicknav.min.css') }}">
 		<!-- Owl Carousel CSS -->
-        <link rel="stylesheet" href="css/owl-carousel.css">
+		<link rel="stylesheet" href="{{ url_for('static', filename='owl-carousel.css') }}">
 		<!-- Datepicker CSS -->
-		<link rel="stylesheet" href="css/datepicker.css">
+		<link rel="stylesheet" href="{{ url_for('static', filename='datepicker.css') }}">
 		<!-- Animate CSS -->
-        <link rel="stylesheet" href="css/animate.min.css">
+		<link rel="stylesheet" href="{{ url_for('static', filename='animate.min.css') }}">
 		<!-- Magnific Popup CSS -->
-        <link rel="stylesheet" href="css/magnific-popup.css">
+		<link rel="stylesheet" href="{{ url_for('static', filename='magnific-popup.css') }}">
 		
 		<!-- Medipro CSS -->
         <link rel="stylesheet" href="css/normalize.css">
-        <link rel="stylesheet" href="style.css">
-        <link rel="stylesheet" href="css/responsive.css">
-		
+        <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+        <link rel="stylesheet" href="{{ url_for('static', filename='responsive.css') }}">
+	
+		 <style>
+			body, html {
+				margin: 0;
+				padding: 0;
+				height: 100%;
+			}
+			
+			.main-title {
+            text-align: center;
+            margin-top: 40px; /* Adjust as needed */
+            margin-bottom: 20px; /* Adjust as needed */
+			}
+
+			.container1 {
+				
+			    border-radius: 10px;
+			}
+
+
+			.box {
+				box-shadow: 0 0 8px rgba(0, 0, 255, 0.3); 
+				height: 250px; /* Adjust height as needed */
+				margin-left: 100px;
+				margin-top: 50px;
+				padding: 20px; 
+				background: #f8f9fa;
+				border-radius: 5px;
+				font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+				max-width: 550px; /* Set maximum width */
+			}
+
+
+				
+			.box h5{
+				margin-top: 20px;
+			}
+
+			.upload-section {
+				margin-top: 60px; /* Add space between file input and buttons */
+			}
+
+
+			.par{
+				font-size: 17px;
+				color: #969286;
+				padding-top: 10px;
+			}
+
+			.upload-section {
+				margin-top: 30px; 
+			}
+			.sub-bt {
+				background-color: #4CAF50; 
+				border: none;
+				color: white;
+				padding: 10px 20px;
+				text-align: center;
+				font-size: 16px;
+				margin: 4px 120px;
+				cursor: pointer;
+				border-radius: 5px;
+			  }
+			  
+			  /* Change the background color of the submit button when hovering */
+			  .sub-bt:hover {
+				background-color: #45a049; /* Darker Green */
+			  }
+			  
+			 
+			.choose-file {
+				background-color: #1A76D1;
+				color: white;
+				padding: 10px 20px;
+				text-align: center;
+				font-size: 16px;
+				margin: 4px 2px;
+			
+				cursor: pointer;
+				border-radius: 5px;
+			  }
+
+			  .choose-file:hover {
+				background-color: #005F6B;
+			  }
+			
+			  .row {
+				
+			}
+			
+			.output {
+				margin: 20px; /* Add margin to all sides */
+				padding: 20px; /* Add padding to all sides */
+				background-color: #f8f9fa; /* Background color */
+				border-radius: 10px; /* Rounded corners */
+				font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; /* Font family */
+				max-width: 550px; /* Set maximum width */
+				box-shadow: 0 0 8px rgba(0, 0, 255, 0.3); /* Box shadow */
+				overflow: hidden; /* Hide overflowing content */
+			}
+			
+			.output img {
+				max-width: 100%; /* Ensure images don't exceed container width */
+				height: auto; /* Maintain aspect ratio */
+			}
+			
+			.output p {
+				font-weight: bold; /* Bold text */
+				padding-top: 10px; /* Spacing above paragraphs */
+				font-size: 20px; /* Font size */
+				margin-bottom: 10px; /* Spacing below paragraphs */
+			}
+			
+			
+			
+			
+			</style>
     </head>
     <body>
 	
-		<!-- Preloader -->
-        <div class="preloader">
-            <div class="loader">
-                <div class="loader-outter"></div>
-                <div class="loader-inner"></div>
 
-                <div class="indicator"> 
-                    <svg width="16px" height="12px">
-                        <polyline id="back" points="1 6 4 6 6 11 10 1 12 6 15 6"></polyline>
-                        <polyline id="front" points="1 6 4 6 6 11 10 1 12 6 15 6"></polyline>
-                    </svg>
-                </div>
-            </div>
-        </div>
-        <!-- End Preloader -->
-		
-	
-	
-		<!-- Header Area -->
-		<header class="header" >
-			<!-- Topbar -->
-			<div class="topbar">
-				<div class="container">
-					<div class="row">
-						
-						<div class="col-lg-6 col-md-7 col-12">
-							
-							<!-- End Top Contact -->
-						</div>
-					</div>
-				</div>
-			</div>
-			<!-- End Topbar -->
-			<!-- Header Inner -->
-			<div class="header-inner">
-				<div class="container">
-					<div class="inner">
-						<div class="row">
-							<div class="col-lg-3 col-md-3 col-12">
-								<!-- Start Logo -->
-								<div class="logo">
-									<a href="https://techgium-index.vercel.app/"><img src="img/logo.jpg" alt="#"></a>
-								</div>
-								<!-- End Logo -->
-								<!-- Mobile Nav -->
-								<div class="mobile-nav"></div>
-								<!-- End Mobile Nav -->
-							</div>
-							<div class="col-lg-7 col-md-9 col-12">
-								<!-- Main Menu -->
-								<div class="main-menu" style="padding-left: 70px">
-									<nav class="navigation">
-										<ul class="nav menu">
-											<li class="active"><a href="https://techgium-index.vercel.app/">Home</a></li>
-											<li><a href="https://nodejs-production-b4eb.up.railway.app/">Patient Entry</a></li>
-											<li><a href="https://visualization-lung.vercel.app/">Visualization</a></li>
-											<li style="padding-left: 120px; color: rgb(14, 78, 121);"><a  href="/logout">Log out</a></li>
-											<!--<div class="col-lg-2 col-12">
-												<div class="get-quote">
-													<a href="#" class="btn">CONTACT US</a>
-												</div>
-											</div>-->
-									</nav>
-								</div>
-											
-										</ul>
-									</nav>
-								</div>
-								<!--/ End Main Menu -->
-							</div>
-							
-						</div>
-					</div>
-				</div>
-			</div>
-			<!--/ End Header Inner -->
-		</header>
-		<!-- End Header Area -->
-		
-		<!-- Error Page -->
-		<section class="error-page section">
+
+
+	<!-- Header Area -->
+	<header class="header" >
+		<!-- Topbar -->
+		<div class="topbar">
 			<div class="container">
 				<div class="row">
-					<div class="col-lg-6 offset-lg-3 col-12">
-						<!-- Error Inner -->
-						<div class="error-inner">
-							<h1>Tumor Segmentation<span>BronchAI streamlines tumor segmentation for enhanced diagnostics and improved patient outcomes</span></h1>
-							<p>BronchAI revolutionizes tumor segmentation with its cutting-edge technology, accurately identifying and delineating lung tumors to streamline medical workflows and improve diagnostic accuracy for better patient outcomes.</p>
-							<form action="/upload" method="post" enctype="multipart/form-data">
-								<input type="file" id="imageUpload" name="imageUpload" accept="image/*">
-									<button class="btn" type="submit">UPLOAD</button>
-							</form>
-						</div>
-						<!--/ End Error Inner -->
+					
+					<div class="col-lg-6 col-md-7 col-12">
+						
+						<!-- End Top Contact -->
 					</div>
 				</div>
 			</div>
-		</section>	
-		<!--/ End Error Page -->
+		</div>
+		<!-- End Topbar -->
+		<!-- Header Inner -->
+		<div class="header-inner">
+			<div class="container">
+				<div class="inner">
+					<div class="row">
+						<div class="col-lg-3 col-md-3 col-12">
+							<!-- Start Logo -->
+							<div class="logo" >
+								<a  href="https://techgium-index.vercel.app/"><img src="https://res.cloudinary.com/dkyur0ade/image/upload/v1708836652/logo_zsqviz.jpg" style="height: 45px; width: 230px;" alt="#"></a>
+							</div>
+							<!-- End Logo -->
+							<!-- Mobile Nav -->
+							<div class="mobile-nav"></div>
+							<!-- End Mobile Nav -->
+						</div>
+						<div class="col-lg-7 col-md-9 col-12">
+							<!-- Main Menu -->
+							<div class="main-menu" style="padding-left: 90px;">
+								<nav class="navigation">
+									<ul class="nav menu">
+										<li><a href="https://techgium-index.vercel.app/">Home</a></li>
+										<li><a href="https://nodejs-production-b4eb.up.railway.app/">Patient Entry</a></li>
+										<li><a href="https://techgium-about.vercel.app/">About Us</a></li>
+										<li class="active" style="padding-left: 120px;"><a  class="lg" href="/logout">Log out</a></li>
+										<!--<div class="col-lg-2 col-12">
+											<div class="get-quote">
+												<a href="#" class="btn">CONTACT US</a>
+											</div>
+										</div>-->
+								</nav>
+							</div>
+								
+									</ul>
+								</nav>
+							</div>
+					
+							<!--/ End Main Menu -->
+						</div>
+
+					</div>
+				</div>
+			</div>
+		</div>
+		<hr style="color:black;">
+		<!--/ End Header Inner -->
+	</header>
+	<!-- End Header Area -->
+		
+	 <!-- Main Title -->
+	 <div class="main-title">
+        <h1 style="text-shadow: 3px 5px 2px #3333; color: #1A76D1;font-size: 45px; font-weight: bold; text-align: center; text-transform: uppercase;">TUMOR SEGMENTATION PORTAL</h1>
+        <p class="par">Bronch AI segmentation for enhanced diagnostics and improved patient outcomes</p>
+    </div>
+
+	<div  class="row" >
+		<div class="col-md-6">
+	<div class="container1" id="container">
+		<div class="box" id="uploadBox" >
+			<h5>Enter the Patient's CT scan Image of Lung tumor </h5>
+			<form action="/predict" method="POST" enctype="multipart/form-data">
+				<div class="upload-section">
+
+				<label for="imagefile" class="image-content text-dark">Upload the image:</label>
+				<input type="file" name="image" class="choose-file"><br><br>
+				<input type="submit" value="Predict" class="process-image sub-bt" >
+				</div>
+			</form>
+		</div>
+	</div>
+</div>
+
+	<div class="col-md-6">
+	<div class="output" id="rightContainer">
+		{% if image_base64 %}
+			<div >
+				<img src="data:image/png;base64,{{ image_base64 }}" alt="Segmented Image" style="height: 100%;">
+			</div>
+		{% endif %}
+
+		{% if prediction_value %}
+			<p style="font-weight:bold; padding-top:10px; font-size:20px;">{{ prediction_value }}</p>
+		{% endif %}
+
+		{% if tumor_type %}
+			<p style="font-weight:bold; padding-top:10px; font-size:20px;">Type of predicted Tumor: {{ tumor_type }}</p>
+		{% endif %}
+
+		{% if mask_shape %}
+			<p style="font-weight:bold; padding-top:10px; font-size:20px;">Shape of the Tumor mask: {{ tumor_shape }}</p>
+		{% endif %}
+	</div>
+</div>
+</div>
+	
+		<!-- End Dashboard Section -->
+	
+		<!-- jquery Min JS -->
 		
 		
 		
 		<!-- jquery Min JS -->
-        <script src="js/jquery.min.js"></script>
+        <script src="{{ url_for('static', filename='jquery.min.js') }}"></script>
 		<!-- jquery Migrate JS -->
-		<script src="js/jquery-migrate-3.0.0.js"></script>
+		<script src="{{ url_for('static', filename='jquery-migrate-3.0.0.js') }}"></script>
 		<!-- jquery Ui JS -->
-		<script src="js/jquery-ui.min.js"></script>
+		<script src="{{ url_for('static', filename='jquery-ui.min.js') }}"></script>
 		<!-- Easing JS -->
-        <script src="js/easing.js"></script>
+		<script src="{{ url_for('static', filename='easing.js') }}"></script>
 		<!-- Color JS -->
-		<script src="js/colors.js"></script>
+		<script src="{{ url_for('static', filename='colors.js') }}"></script>
 		<!-- Popper JS -->
-		<script src="js/popper.min.js"></script>
+		<script src="{{ url_for('static', filename='popper.min.js') }}"></script>
 		<!-- Bootstrap Datepicker JS -->
-		<script src="js/bootstrap-datepicker.js"></script>
+		<script src="{{ url_for('static', filename='bootstrap-datepicker.js') }}"></script>
 		<!-- Jquery Nav JS -->
-        <script src="js/jquery.nav.js"></script>
+		<script src="{{ url_for('static', filename='jquery.nav.js') }}"></script>
 		<!-- Slicknav JS -->
-		<script src="js/slicknav.min.js"></script>
+		<script src="{{ url_for('static', filename='slicknav.min.js') }}"></script>
 		<!-- ScrollUp JS -->
-        <script src="js/jquery.scrollUp.min.js"></script>
+		<script src="{{ url_for('static', filename='jquery.scrollUp.min.js') }}"></script>
 		<!-- Niceselect JS -->
-		<script src="js/niceselect.js"></script>
+		<script src="{{ url_for('static', filename='niceselect.js') }}"></script>
 		<!-- Tilt Jquery JS -->
-		<script src="js/tilt.jquery.min.js"></script>
+		<script src="{{ url_for('static', filename='tilt.jquery.min.js') }}"></script>
 		<!-- Owl Carousel JS -->
-        <script src="js/owl-carousel.js"></script>
+		<script src="{{ url_for('static', filename='owl-carousel.js') }}"></script>
 		<!-- counterup JS -->
-		<script src="js/jquery.counterup.min.js"></script>
+		<script src="{{ url_for('static', filename='jquery.counterup.min.js') }}"></script>
 		<!-- Steller JS -->
-		<script src="js/steller.js"></script>
+		<script src="{{ url_for('static', filename='steller.js') }}"></script>
 		<!-- Wow JS -->
-		<script src="js/wow.min.js"></script>
+		<script src="{{ url_for('static', filename='wow.min.js') }}"></script>
 		<!-- Magnific Popup JS -->
-		<script src="js/jquery.magnific-popup.min.js"></script>
+		<script src="{{ url_for('static', filename='jquery.magnific-popup.min.js') }}"></script>
 		<!-- Counter Up CDN JS -->
 		<script src="http://cdnjs.cloudflare.com/ajax/libs/waypoints/2.0.3/waypoints.min.js"></script>
 		<!-- Bootstrap JS -->
-		<script src="js/bootstrap.min.js"></script>
-		<!-- Main JS -->
-		<script src="js/main.js"></script>
+		<script src="{{ url_for('static', filename='bootstrap.min.js') }}"></script>
+	
     </body>
 </html>
+
+
