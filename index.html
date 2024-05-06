@@ -43,12 +43,13 @@
         <link rel="stylesheet" href="css/normalize.css">
         <link rel="stylesheet" href="style.css">
         <link rel="stylesheet" href="css/responsive.css">
-	
+
 		 <style>
 			body, html {
 				margin: 0;
 				padding: 0;
 				height: 100%;
+
 			}
 			
 			.main-title {
@@ -65,9 +66,9 @@
 
 			.box {
 				box-shadow: 0 0 8px rgba(0, 0, 255, 0.3); 
-				height: 250px; /* Adjust height as needed */
+				height: 420px; /* Adjust height as needed */
 				margin-left: 100px;
-				margin-top: 50px;
+				margin-top: 10px;
 				padding: 20px; 
 				background: #f8f9fa;
 				border-radius: 5px;
@@ -93,7 +94,8 @@
 			}
 
 			.upload-section {
-				margin-top: 30px; 
+				margin-top: 15px; 
+				margin-left: 80px;
 			}
 			.sub-bt {
 				background-color: #4CAF50; 
@@ -102,7 +104,7 @@
 				padding: 10px 20px;
 				text-align: center;
 				font-size: 16px;
-				margin: 4px 120px;
+				margin : 4px 170px;
 				cursor: pointer;
 				border-radius: 5px;
 			  }
@@ -129,10 +131,6 @@
 				background-color: #005F6B;
 			  }
 			
-			  .row {
-				
-			}
-			
 			.output {
 				margin: 20px; /* Add margin to all sides */
 				padding: 20px; /* Add padding to all sides */
@@ -157,7 +155,70 @@
 			}
 			
 			
+			.dimage {
+				margin-top: 20px; 
+			}
 			
+			.dimage input[type="file"] {
+				margin-top: 10px; 
+			}
+			
+			.dimage input[type="submit"] {
+				margin-top: 10px; 
+				background-color: #4CAF50; 
+				border: none;
+				color: white;
+				padding: 10px 20px;
+				text-align: center;
+				font-size: 16px;
+				cursor: pointer;
+				border-radius: 5px;
+			}
+			
+			.dimage input[type="submit"]:hover {
+				background-color: #45a049;
+			}
+			.choose-file1{
+				background-color: #1A76D1;
+				color: white;
+				padding: 10px 20px;
+				text-align: center;
+				font-size: 16px;
+				margin: 4px 80px;
+			
+				cursor: pointer;
+				border-radius: 5px;
+			  }
+
+			  .choose-file1:hover {
+				background-color: #005F6B;
+			  }
+
+			  .dimage input[type="submit"] {
+				background-color: #4CAF50; 
+				border: none;
+				color: white; 
+				padding: 10px 20px; 
+				text-align: center; 
+				font-size: 16px; 
+				cursor: pointer;
+				border-radius: 5px; 
+				margin : 4px 170px;
+				margin-top : 20px;
+			}
+			
+			.dimage input[type="submit"]:hover {
+				background-color: #45a049; 
+			}
+			.dimage {
+				margin-top: 20px;
+			}
+			
+			.dimage h2 {
+				font-size: 24px;
+				color: #333; /* Adjust text color as needed */
+				margin-bottom: 10px;
+			}
 			
 			</style>
     </head>
@@ -237,22 +298,28 @@
 
 	<div  class="row" >
 		<div class="col-md-6">
-	<div class="container1" id="container">
-		<div class="box" id="uploadBox" >
-			<h5>Enter the Patient's CT scan Image of Lung tumor </h5>
-			<form action="/predict" method="POST" enctype="multipart/form-data">
-				<div class="upload-section">
-
-				<label for="imagefile" class="image-content text-dark">Upload the image:</label>
-				<input type="file" name="image" class="choose-file"><br><br>
-				<input type="submit" value="Predict" class="process-image sub-bt" >
+			<div class="container1" id="container">
+				<div class="box" id="uploadBox" >
+					<h5 style="font-weight: bold; color:black;">ENTER PATIENT'S LUNG CT SCAN:</h5>
+					<form action="/predict" method="POST" enctype="multipart/form-data">
+						<div class="upload-section">
+							<input type="file" name="image" class="choose-file"><br><br>				
+						</div>
+						<input type="submit" value="Predict" class="process-image sub-bt" >
+					</form>
+				
+				<div class="dimage">
+					<h5 style="font-weight: bold; color:black;">ENTER PATIENT'S 3D LUNG SCAN:</h5>
+					<form action="/upload_nifti" method="post" enctype="multipart/form-data">
+						<div>
+        					<input type="file" name="nifti_file" accept=".nii, .nii.gz"class="choose-file1">   	
+						</div>
+						<input type="submit" value="Upload">
+    				</form>
 				</div>
-			</form>
+			</div>
 		</div>
 	</div>
-</div>
-
-</div>
 	
 		<!-- End Dashboard Section -->
 	
